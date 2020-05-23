@@ -1,0 +1,33 @@
+/*
+ Theme Name:   oceanwp-child
+ Description:  oceanwp Child Theme
+ Author:       Caroline, Caroline og Karina
+ Template:     oceanwp
+ Version:      1.0.0
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  ocenwp child
+*/
+
+
+.oceanwp-social-icons {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+wpcf7-form-control{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+    }
+elementor-widget-container h5{
+    font-size: 0px;
+}
