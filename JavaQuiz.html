@@ -1,0 +1,56 @@
+<body>
+    <h1 style="font-size: 32px;color:#54595F;text-align:center;font-family: Roboto, sans-serif;">TAG QUIZZEN</h1>
+    <p style="margin-right:15px;font-family: Roboto, sans-serif; font-weight:400;">Har du styr på dine måleenheder? Det kan også godt drille lidt en gang i mellem. Man bruger målenheder når man bager, laver mad - og drinks! Vi vil hjælpe dig med at bruge og forstå målenhederne korrekt!<br><br>Også kommer der lidt spørgsmål omkring Carka Cakes. Vil vi gerne være med til at styrke dit kendskab til måleenheder og skala - og selvfølgelig vores hjertebarn - Carka Cakes!</p>
+    <button id="start" class="quiz">TAG QUIZ!</button>
+    <p id="result" style="margin: 10px 40px 40px 40px;"></p>  
+  
+    <script>
+      //QUIZ STARTER HER
+        // globale variabler - synlige for hele skriptet
+        var questions, score, feedback, button;
+
+        score = 0;
+        button = document.getElementById('start');
+        button.addEventListener('click', runQuiz);
+
+        feedback = document.getElementById('result');
+
+        // 2-dimensionel array
+        questions = [
+            ['Hvor mange er med i temaet bag Carka Cakes?', 3], // questions[0]
+            ['1000 gram i kg er?', 1],
+            ['I hvilket årstal startede Carka Cakes op?', 2020],
+            ['2 kg i gram?', 2000],
+            ['Hvor mange følgere har Carka Cakes på Instagram?', 15],
+            ['Hvor meget er 1 liter i deciliter?', 10]
+        ];
+
+        // console.log(questions[0][0]); udgiver teksten i konsolen.
+
+        function runQuiz() {
+            // loop igennem array questions
+            for (var i = 0; i < questions.length; i++) {
+                askQuestion(questions[i]); // iterationer med kald til funktionen med parameter variablen i
+            };
+            giveFeedback(); // kalder funktionen feedback, når quizzet er afsluttet
+        }
+
+        function askQuestion(array) { // funktion med argument
+            //console.log(array[1]);
+            // lokal variable med nøgleord let
+            let answer = parseInt(prompt(array[0], '')); //skaber en prompt dialog med mulighed for bruger input
+            // parseInt forvandler en string til et helt nummer (integer)
+            if (answer === array[1]) { // i tilfælde af et rigtig svar
+                alert('Correct!');
+                score++;
+            } else { // forkert svar
+                alert('Desværre, det korrekte svar er ' + array[1])
+            }
+        }
+
+        function giveFeedback() {
+            feedback.innerHTML = 'Du fik ' + score + ' ud af ' + questions.length + ' spørgsmål korrekt!';
+            button.removeEventListener('click', runQuiz); // quiz er afsluttet og kan ikke startes igen.
+        }
+  </script>
+</body>
